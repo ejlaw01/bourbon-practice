@@ -1,0 +1,182 @@
+@import 'libraries/bourbon/bourbon.scss';
+@import 'libraries/neat/neat.scss';
+
+$background-color: #F4EFDE;
+
+@mixin vertical-center {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+@mixin full-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  border: 10px solid black;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Circular', Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  background-color: $background-color;
+}
+
+.navbar {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 10px solid black;
+  ul {
+    @include vertical-center;
+    position: absolute;
+    list-style: none;
+    margin: auto 0;
+  }
+  li {
+    float: left;
+    margin-left: 40px;
+    font-size: 1.2em;
+    &:hover {
+      color: grey;
+    }
+  }
+}
+
+.main {
+  @include span-columns(12);
+}
+
+.side {
+  @include span-columns(6 of 12, block-collapse);
+  height: 100vh;
+  &#left-column {
+    border-right: 10px solid black;
+  }
+  &#right-column {
+  }
+}
+
+.block {
+  position: relative;
+  margin: 0;
+  text-align: center;
+  &:hover {
+    background: black;
+    color: white;
+  }
+  h2 {
+    text-align: center;
+    text-decoration: underline;
+  }
+  &.small {
+    width: 50%;
+  }
+  &#logo {
+    @include span-columns(3 of 6, block-collapse);
+    border-right: 10px solid black;
+    background: url('../img/logo-dyl.png') center center no-repeat;
+    background-size: 80%;
+    background-color: white;
+    height: 100%;
+    &:hover {
+      background-color: white;
+    }
+  }
+  &#events {
+    @include span-columns(3 of 6, block-collapse);
+    height: 100%;
+  }
+  &#book {
+    @include span-columns(12);
+    height: 75%;
+    width: 100%;
+    &:hover {
+      background-color: $background-color;
+      color: black;
+    }
+    .arrow {
+      height: 50px;
+      width: 70px;
+      background: white;
+      border-bottom: 10px solid black;
+      border-left: 10px solid black;
+      &:hover {
+        background-color: black;
+      }
+      &#right-arrow {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      &#left-arrow {
+        position: absolute;
+        top: 0;
+        right: 70px;
+      }
+    }
+  }
+  &#video {
+    height: 50%;
+    width: 100%;
+    margin-right: 0;
+    border-bottom: 10px solid black;
+  }
+  &#synopsis {
+    height: 100%;
+    width: 50%;
+    float: left;
+    border-right: 10px solid black;
+  }
+  &#author {
+    height: 100%;
+    width: 50%;
+    float: right;
+  }
+  &#shop {
+    height: 15%;
+    width: 100%;
+    margin-right: 0;
+    border-top: 10px solid black;
+    clear: both;
+  }
+}
+
+.top-row {
+  @include span-columns(12);
+  border-bottom: 10px solid black;
+  height: 25%;
+}
+
+.middle-row {
+  @include span-columns(12);
+  height: 35%;
+  width: 100%;
+}
+
+.icon-left {
+  @include full-center;
+  position: absolute;
+  background: url('../img/sprites_sd.png');
+  width: 27px;
+  height: 23px;
+  background-position: -262px -175px;
+  overflow: hidden;
+}
+
+.icon-right {
+  @include full-center;
+  position: absolute;
+  background: url('../img/sprites_sd.png');
+  width: 26px;
+  height: 23px;
+  background-position: -374px -158px;
+  display: inline-block;
+  overflow: hidden;
+}
