@@ -14,6 +14,13 @@ $background-color: #F4EFDE;
   transform: translate(-50%, -50%);
 }
 
+@mixin responsive-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -82,7 +89,7 @@ body {
     @include span-columns(3 of 6, block-collapse);
     border-right: 10px solid black;
     background: url('../img/logo-dyl.png') center center no-repeat;
-    background-size: 80%;
+    background-size: 65%;
     background-color: white;
     height: 100%;
     &:hover {
@@ -100,6 +107,11 @@ body {
     &:hover {
       background-color: $background-color;
       color: black;
+    }
+    img {
+      @include responsive-image;
+      @include vertical-center;
+      position: absolute;
     }
     .arrow {
       height: 50px;
@@ -127,6 +139,9 @@ body {
     width: 100%;
     margin-right: 0;
     border-bottom: 10px solid black;
+    background: url('../img/video.jpg') center center no-repeat;
+    background-size: cover;
+    position: relative;
   }
   &#synopsis {
     height: 100%;
@@ -135,9 +150,15 @@ body {
     border-right: 10px solid black;
   }
   &#author {
-    height: 100%;
+    height: 50%;
     width: 50%;
     float: right;
+    border-bottom: 10px solid black;
+  }
+  &#media {
+    height: 50%;
+    width: 50%;
+
   }
   &#shop {
     height: 15%;
@@ -177,6 +198,17 @@ body {
   width: 26px;
   height: 23px;
   background-position: -374px -158px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.video-icon {
+  @include full-center;
+  position: absolute;
+  background: url('../img/sprites_sd.png');
+  width: 86px;
+  height: 85px;
+  background-position: -197px -2px;
   display: inline-block;
   overflow: hidden;
 }
